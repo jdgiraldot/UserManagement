@@ -1,7 +1,7 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import connectDB from './config/db.js';
-import userRoutes from './routes/userRoutes.js';
+import express from 'express';
+import mongoose from 'mongoose';
+import userRoutes from './users/routes.js';
 
 dotenv.config();
 
@@ -14,7 +14,12 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 
 // Database connection
-connectDB();
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch((error) => {
+        console.error(`Error connecting to MongoDB: ${error.message}`);
+        process.exit(1);
+    });
 
 // Start server
 const PORT = process.env.PORT || 5000;
