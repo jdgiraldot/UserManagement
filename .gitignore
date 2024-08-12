@@ -1,0 +1,23 @@
+# Node modules
+backend/node_modules/
+
+# Logs
+backend/logs
+*.log
+
+# Environment files
+# backend/.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE or Editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build output
+backend/dist/
+frontend/build/
