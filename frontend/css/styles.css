@@ -42,6 +42,14 @@ button:hover {
     background-color: #286090;
 }
 
+#user-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
 #response-output {
     white-space: pre-wrap; /* Mantiene el formato del texto */
+    font-weight: 700;
 }

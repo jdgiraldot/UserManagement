@@ -27,8 +27,8 @@ async function createUser() {
 }
 
 // Obtener un usuario por ID
-async function getUserById() {
-    const id = document.getElementById('userId').value;
+async function getUser() {
+    const id = document.getElementById('id').value;
 
     try {
         const response = await fetch(`${apiUrl}/${id}`);
@@ -42,7 +42,7 @@ async function getUserById() {
 
 // Actualizar un usuario por ID
 async function updateUser() {
-    const id = document.getElementById('userId').value;
+    const id = document.getElementById('id').value;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const salary = document.getElementById('salary').value;
@@ -67,8 +67,8 @@ async function updateUser() {
 }
 
 // Eliminar un usuario por ID
-async function deleteUserById() {
-    const id = document.getElementById('userId').value;
+async function deleteUser() {
+    const id = document.getElementById('id').value;
 
     try {
         const response = await fetch(`${apiUrl}/${id}`, {
