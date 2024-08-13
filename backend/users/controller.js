@@ -3,8 +3,8 @@ import User from './model.js';
 // Crear nuevo usuario
 export const createUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
-        const user = new User({ name, email, password });
+        const { id, name, email, salary } = req.body;
+        const user = new User({ id, name, email, salary });
         await user.save();
         res.status(201).json(user);
     } catch (error) {
@@ -22,10 +22,10 @@ export const getUsers = async (req, res) => {
     }
 };
 
-// Obtener un usuario por ID
+// Obtener un usuario por id personalizado
 export const getUserById = async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findOne({ id: req.params.id });
         if (user) {
             res.json(user);
         } else {
@@ -36,10 +36,10 @@ export const getUserById = async (req, res) => {
     }
 };
 
-// Actualizar un usuario por ID
+// Actualizar un usuario por id personalizado
 export const updateUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const user = await User.findOneAndUpdate({ id: req.params.id }, req.body, { new: true });
         if (user) {
             res.json(user);
         } else {
@@ -50,10 +50,10 @@ export const updateUser = async (req, res) => {
     }
 };
 
-// Eliminar un usuario por ID
+// Eliminar un usuario por id personalizado
 export const deleteUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
+        const user = await User.findOneAndDelete({ id: req.params.id });
         if (user) {
             res.json({ message: 'Usuario eliminado' });
         } else {

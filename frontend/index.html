@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+        
+        <div id="user-form">
+            <input type="number" id="id" placeholder="ID">
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="number" id="salary" placeholder="Salary">
+            <button onclick="createUser()">Create User</button>
+        </div>
+
+        <div id="user-actions">
+            <input type="number" id="userId" placeholder="ID">
+            <button onclick="getUserById()">Get User</button>
+            <button onclick="updateUser()">Update User</button>
+            <button onclick="deleteUserById()">Delete User</button>
+        </div>
+
+        <div id="response">
+            <h2>Response</h2>
+            <pre id="response-output"></pre>
+        </div>
+    </div>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>

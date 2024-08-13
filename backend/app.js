@@ -1,3 +1,4 @@
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -9,6 +10,14 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Cors
+app.use(cors({
+    origin: '*', // Permite solicitudes desde cualquier origen
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: false, // No se requieren credenciales
+  }));
 
 // Routes
 app.use('/api/users', userRoutes);
