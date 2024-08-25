@@ -121,38 +121,106 @@ frontend/
 
 ### 4.4 Conexión con el Backend
 
-Los componentes del frontend interactúan con el backend enviando y recibiendo datos a través de peticiones HTTP utilizando `fetch`.
-
 **Ejemplo de una Petición:**
+Copia los siguientes cURL de prueba para ejecutarlos en Postman:
 
-- **Crear un usuario**      [POST] [http://localhost:5000/api/users](http://localhost:5000/api/users)
+- **Crear un usuario**  [POST] [http://localhost:5000/api/users](http://localhost:5000/api/users)
+  ```cmd
+  curl "http://localhost:5000/api/users" ^
+  -H "Accept: */*" ^
+  -H "Accept-Language: es-CO,es-419;q=0.9,es;q=0.8,en-US;q=0.7,en;q=0.6" ^
+  -H "Connection: keep-alive" ^
+  -H "Content-Type: application/json" ^
+  -H "DNT: 1" ^
+  -H "Origin: http://127.0.0.1:3000" ^
+  -H "Referer: http://127.0.0.1:3000/" ^
+  -H "Sec-Fetch-Dest: empty" ^
+  -H "Sec-Fetch-Mode: cors" ^
+  -H "Sec-Fetch-Site: cross-site" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"128^\^", ^\^"Not;A=Brand^\^";v=^\^"24^\^", ^\^"Microsoft Edge^\^";v=^\^"128^\^"^" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  --data-raw ^"^{^\^"id^\^":^\^"12345^\^",^\^"name^\^":^\^"John^\^",^\^"email^\^":^\^"jhon^@gmail.com^\^",^\^"salary^\^":^\^"1000000^\^"^}^"
+  ```
 - **Consultar un usuario**  [GET] [http://localhost:5000/api/users/{id}](http://localhost:5000/api/users/{id})
+  ```cmd
+  curl "http://localhost:5000/api/users/12345" ^
+  -H "Accept: */*" ^
+  -H "Accept-Language: es-CO,es-419;q=0.9,es;q=0.8,en-US;q=0.7,en;q=0.6" ^
+  -H "Connection: keep-alive" ^
+  -H "DNT: 1" ^
+  -H ^"If-None-Match: W/^\^"b7-rUW2aAJynpuHyA+6RizXrageeMc^\^"^" ^
+  -H "Origin: http://127.0.0.1:3000" ^
+  -H "Referer: http://127.0.0.1:3000/" ^
+  -H "Sec-Fetch-Dest: empty" ^
+  -H "Sec-Fetch-Mode: cors" ^
+  -H "Sec-Fetch-Site: cross-site" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"128^\^", ^\^"Not;A=Brand^\^";v=^\^"24^\^", ^\^"Microsoft Edge^\^";v=^\^"128^\^"^" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^"
+  ```
 - **Actualizar un usuario** [PUT] [http://localhost:5000/api/users/{id}](http://localhost:5000/api/users/{id})
+  ```cmd
+  curl "http://localhost:5000/api/users/12345" ^
+  -X "PUT" ^
+  -H "Accept: */*" ^
+  -H "Accept-Language: es-CO,es-419;q=0.9,es;q=0.8,en-US;q=0.7,en;q=0.6" ^
+  -H "Connection: keep-alive" ^
+  -H "Content-Type: application/json" ^
+  -H "DNT: 1" ^
+  -H "Origin: http://127.0.0.1:3000" ^
+  -H "Referer: http://127.0.0.1:3000/" ^
+  -H "Sec-Fetch-Dest: empty" ^
+  -H "Sec-Fetch-Mode: cors" ^
+  -H "Sec-Fetch-Site: cross-site" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"128^\^", ^\^"Not;A=Brand^\^";v=^\^"24^\^", ^\^"Microsoft Edge^\^";v=^\^"128^\^"^" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^" ^
+  --data-raw ^"^{^\^"name^\^":^\^"John2^\^",^\^"email^\^":^\^"John2^@gmail.com^\^",^\^"salary^\^":^\^"2000000^\^"^}^"
+  ```
 - **Eliminar un usuario**   [DELETE] [http://localhost:5000/api/users/{id}](http://localhost:5000/api/users/{id})
-
-Se debe cambiar `{id}` por el número del documento con que fue creado el usuario.
+  ```cmd
+  curl "http://localhost:5000/api/users/12345" ^
+  -X "DELETE" ^
+  -H "Accept: */*" ^
+  -H "Accept-Language: es-CO,es-419;q=0.9,es;q=0.8,en-US;q=0.7,en;q=0.6" ^
+  -H "Connection: keep-alive" ^
+  -H "DNT: 1" ^
+  -H "Origin: http://127.0.0.1:3000" ^
+  -H "Referer: http://127.0.0.1:3000/" ^
+  -H "Sec-Fetch-Dest: empty" ^
+  -H "Sec-Fetch-Mode: cors" ^
+  -H "Sec-Fetch-Site: cross-site" ^
+  -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0" ^
+  -H ^"sec-ch-ua: ^\^"Chromium^\^";v=^\^"128^\^", ^\^"Not;A=Brand^\^";v=^\^"24^\^", ^\^"Microsoft Edge^\^";v=^\^"128^\^"^" ^
+  -H "sec-ch-ua-mobile: ?0" ^
+  -H ^"sec-ch-ua-platform: ^\^"Windows^\^"^"
+  ```
 
 ## 5. Pruebas
 
 ### 5.1 Pruebas Backend
 
-- **Descripción**: Las pruebas del backend se pueden realizar utilizando herramientas como Postman o Insomnia para verificar las operaciones CRUD de la API.
+- Las pruebas del backend se pueden realizar utilizando herramientas como Postman o Insomnia para verificar las operaciones CRUD de la API.
 - **Ejemplo de Prueba Unitaria**: Un test básico para verificar la funcionalidad de un controlador puede incluir la validación de respuestas de la API para asegurarse de que los datos se manejen correctamente.
 
 ### 5.2 Pruebas Frontend
 
-- **Descripción**: Las pruebas del frontend aseguran que los componentes de la aplicación funcionen correctamente. Se pueden utilizar herramientas como Jasmine o Karma para validar la funcionalidad de los componentes y la integración con el backend.
+- Las pruebas del frontend aseguran que los componentes de la aplicación funcionen correctamente. Se pueden utilizar herramientas como Jasmine o Karma para validar la funcionalidad de los componentes y la integración con el backend.
 
 ## 6. Despliegue
 
 ### 6.1 Backend
 
-- **Descripción**: Para desplegar el backend en un servidor de producción, puedes utilizar plataformas como Heroku o AWS. Asegúrate de configurar las variables de entorno correctamente y de que la base de datos esté accesible desde el entorno de producción.
+- Para desplegar el backend en un servidor de producción, puedes utilizar plataformas como Heroku o AWS. Asegúrate de configurar las variables de entorno correctamente y de que la base de datos esté accesible desde el entorno de producción.
 
 ### 6.2 Frontend
 
-- **Descripción**: El frontend puede desplegarse en servicios como Netlify o Vercel. Simplemente sube el contenido de la carpeta `frontend` y configura el dominio y las opciones de despliegue según las instrucciones de la plataforma elegida.
+- El frontend puede desplegarse en servicios como Netlify o Vercel. Simplemente sube el contenido de la carpeta `frontend` y configura el dominio y las opciones de despliegue según las instrucciones de la plataforma elegida.
 
 ## 7. Conclusiones
 
-- **Resumen**: Este proyecto implementa un sistema básico de gestión de usuarios utilizando el stack MEAN con un frontend en HTML, CSS y JavaScript vanilla, y un backend en Node.js con Express y MongoDB. Las funcionalidades principales incluyen la capacidad de crear, consultar, actualizar y eliminar usuarios. Para futuras mejoras, se podría considerar la integración de un framework frontend más robusto o la adición de autenticación y autorización.
+Este proyecto implementa un sistema básico de gestión de usuarios utilizando el stack MEAN con un frontend en HTML, CSS y JavaScript vanilla, y un backend en Node.js con Express y MongoDB. Las funcionalidades principales incluyen la capacidad de crear, consultar, actualizar y eliminar usuarios. Para futuras mejoras, se podría considerar la integración de un framework frontend más robusto o la adición de autenticación y autorización.
